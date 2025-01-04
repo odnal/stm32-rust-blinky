@@ -1,0 +1,16 @@
+[target.thumbv7em-none-eabi]
+runner = 'arm-none-eabi-gdb'
+rustflags = [
+    #"-Cpanic=abort", 
+    #"-Coverflow-checks=off",
+    #"--edition=2018",
+    "-C", "link-arg=-g",
+    "-C", "link-arg=target/thumbv7em-none-eabi/debug/boot.o",
+    "-C", "link-arg=-Tlinker.ld",
+    "-C", "link-arg=-nostdlib",
+    "-C", "link-arg=-Map=target/thumbv7em-none-eabi/debug/final.map",
+    "-C", "linker=arm-none-eabi-ld",
+]
+
+[build]
+target = "thumbv7em-none-eabi"
